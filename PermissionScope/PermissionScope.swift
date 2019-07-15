@@ -518,7 +518,7 @@ typealias resultsForConfigClosure     = ([PermissionResult]) -> Void
     /**
     Requests access to Contacts, if necessary.
     */
-    public func requestContacts() {
+    @objc public func requestContacts() {
         let status = statusContacts()
         switch status {
         case .unknown:
