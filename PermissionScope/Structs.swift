@@ -42,12 +42,13 @@ import Foundation
 
 /// Possible statuses for a permission.
 @objc public enum PermissionStatus: Int, CustomStringConvertible {
-    case authorized, unauthorized, unknown, disabled
+    case authorized, unauthorized, limited, unknown, disabled
     
     public var description: String {
         switch self {
         case .authorized:   return "Authorized"
         case .unauthorized: return "Unauthorized"
+        case .limited:      return "Limited"
         case .unknown:      return "Unknown"
         case .disabled:     return "Disabled" // System-level
         }

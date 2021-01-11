@@ -650,6 +650,8 @@ typealias resultsForConfigClosure     = ([PermissionResult]) -> Void
             showDisabledAlert(.notifications)
         case .authorized:
             detectAndCallback()
+        case .limited:
+            break // TODO: new in iOS14. Might need a proper handling
         }
     }
     
@@ -688,6 +690,8 @@ typealias resultsForConfigClosure     = ([PermissionResult]) -> Void
             showDisabledAlert(.microphone)
         case .authorized:
             break
+        case .limited:
+            break // TODO: new in iOS14. Might need a proper handling
         }
     }
     
@@ -727,6 +731,8 @@ typealias resultsForConfigClosure     = ([PermissionResult]) -> Void
             showDisabledAlert(.camera)
         case .authorized:
             break
+        case .limited:
+            break // TODO: new in iOS14. Might need a proper handling
         }
     }
 
@@ -744,7 +750,11 @@ typealias resultsForConfigClosure     = ([PermissionResult]) -> Void
             return .authorized
         case .denied, .restricted:
             return .unauthorized
+        case .limited:
+            return .limited
         case .notDetermined:
+            return .unknown
+        default:
             return .unknown
         }
     }
@@ -765,6 +775,8 @@ typealias resultsForConfigClosure     = ([PermissionResult]) -> Void
             showDisabledAlert(.photos)
         case .authorized:
             break
+        case .limited:
+            break // TODO: new in iOS14. Might need a proper handling
         }
     }
     
